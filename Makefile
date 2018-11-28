@@ -7,6 +7,11 @@ GOLINTER     ?= $(GOPATH)/bin/gometalinter
 BIN_DIR      ?= $(shell pwd):x
 TARGET       ?= gluster_exporter
 
+DOCKERFILE	      ?= Dockerfile
+DOCKER_REPO       ?= aixeshunter
+DOCKER_IMAGE_NAME ?= glusterfs-exporter
+DOCKER_IMAGE_TAG  ?= v1.0
+
 info:
 	@echo "build: Go build"
 	@echo "docker: build and run in docker container"
@@ -18,8 +23,8 @@ build: depcheck $(PROMU) gotest
 	@$(PROMU) build
 
 docker: gotest build
-	docker build -t gluster-exporter-test .
-	docker run --rm --privileged=true -p 9189:9189 -p 24007:24007 -p 24009-24108:24009-24108/tcp -i -v gluster-test:/data gluster-exporter-test
+	@echo ">> building docker image from $(DOCKERFILE)"
+	@docker build -t "$(DOCKER_REPO)/$(DOCKER_IMAGE_NAME):$(DOCKER_IMAGE_TAG)" .
 
 gotest: vet format
 	@echo ">> running tests"

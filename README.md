@@ -126,6 +126,7 @@ Another transaction is in progress for gv_cluster. Please try again after someti
 - coder-hugo
 - mjtrangoni
 
-## Similar Projects
-glusterfs exporter for prometheus written in rust.
-- https://github.com/ibotty/glusterfs-exporter
+## Glusterd service run in external
+If the glusterd.service is running in external host not in docker, we can use `servicemonitor`-`service`-`endpoints` to get its metrics.
+
+* yaml files look at [external glusterfs service monitor](external_service/)
