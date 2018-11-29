@@ -1,0 +1,16 @@
+[Unit]
+Description=The plugin-driven server agent for reporting metrics into Prometheus
+Documentation=https://github.com/aixeshunter/gluster_exporter
+After=network.target
+
+[Service]
+PermissionsStartOnly=true
+User=root
+ExecStart=/usr/bin/gluster_exporter --web.listen-address=":9189"
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=on-failure
+RestartForceExitStatus=SIGPIPE
+KillMode=control-group
+
+[Install]
+WantedBy=multi-user.target

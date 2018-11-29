@@ -127,6 +127,6 @@ Another transaction is in progress for gv_cluster. Please try again after someti
 - mjtrangoni
 
 ## Glusterd service run in external
-If the glusterd.service is running in external host not in docker, we can use `servicemonitor`-`service`-`endpoints` to get its metrics.
+If the glusterd.service is running in external host not in docker, we can use `servicemonitor` -> `service` -> `endpoints` method to get its metrics.
 
 * yaml files look at [external glusterfs service monitor](external_service/)
