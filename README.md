@@ -122,10 +122,6 @@ If the following message appears while trying to get some information out of you
 Another transaction is in progress for gv_cluster. Please try again after sometime
 ```
 
-## Contributors
-- coder-hugo
-- mjtrangoni
-
 ## Glusterd service run in external
 If the glusterd.service is running in external host not in docker, we can use `servicemonitor` -> `service` -> `endpoints` method to get its metrics.
 
